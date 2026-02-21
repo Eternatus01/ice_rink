@@ -14,7 +14,7 @@
         <div class="bg-white rounded-2xl shadow-card border border-gray-100 p-6 sm:p-8 md:p-10">
             <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Покупка билета</h1>
             <p class="text-gray-600 mb-8">Стоимость входа на каток: <span class="font-semibold text-ice-teal text-xl">300₽</span></p>
-            <p class="text-gray-500 text-sm mb-8">Оплачивается один раз. После оплаты вы получаете доступ на каток.</p>
+            <p class="text-gray-400 text-sm mb-8">Оплачивается один раз. После оплаты вы получаете доступ на каток.</p>
             <form action="{{ route('ticket.purchase') }}" method="POST" class="space-y-6">
                 @csrf
                 <button type="submit" class="w-full py-4 rounded-xl bg-ice-teal text-white font-semibold hover:bg-ice-coral transition-colors duration-300">
