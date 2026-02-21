@@ -5,7 +5,7 @@
 @section('content')
 <section class="py-16 md:py-24">
     <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-2xl shadow-card border border-gray-100 p-8 md:p-10 text-center">
+        <div class="bg-white rounded-2xl shadow-card border border-gray-100 p-6 sm:p-8 md:p-10 text-center">
             <div class="w-16 h-16 rounded-full bg-ice-teal/10 flex items-center justify-center mx-auto mb-6">
                 <svg class="w-8 h-8 text-ice-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>

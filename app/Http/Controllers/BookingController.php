@@ -53,7 +53,9 @@ class BookingController extends Controller
         $payment = $service->createPayment(
             (float) $amount,
             "Бронирование коньков — {$hours} ч.",
-            ['type' => 'booking', 'booking_id' => $booking->id]
+            ['type' => 'booking', 'booking_id' => $booking->id],
+            null,
+            $validated['phone']
         );
 
         if (!$payment) {

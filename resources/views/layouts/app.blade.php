@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,6 +32,7 @@
             }
         </script>
         <style>
+            html { scroll-behavior: smooth; }
             .shadow-card { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
             .shadow-card-hover { box-shadow: 0 8px 30px rgba(65,179,163,0.15); }
             .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; opacity: 0; }

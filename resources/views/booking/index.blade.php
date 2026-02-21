@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <div class="bg-white rounded-2xl shadow-card border border-gray-100 p-8 md:p-10">
+        <div class="bg-white rounded-2xl shadow-card border border-gray-100 p-6 sm:p-8 md:p-10">
             <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Бронирование коньков</h1>
             <p class="text-gray-600 mb-8">150₽ / 1 час. Можно прийти со своими коньками.</p>
 

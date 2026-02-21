@@ -24,7 +24,10 @@ class TicketController extends Controller
         $payment = $service->createPayment(
             self::TICKET_PRICE,
             'Входной билет на каток',
-            ['type' => 'ticket']
+            ['type' => 'ticket'],
+            null,
+            null,
+            null
         );
 
         if (!$payment) {
