@@ -5,6 +5,12 @@
 @section('content')
 <section class="py-16 md:py-24">
     <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+        @if (session('error'))
+            <div class="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <div class="bg-white rounded-2xl shadow-card border border-gray-100 p-8 md:p-10">
             <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Покупка билета</h1>
             <p class="text-gray-600 mb-8">Стоимость входа на каток: <span class="font-semibold text-ice-teal text-xl">300₽</span></p>

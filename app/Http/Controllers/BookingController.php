@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Skate;
+use App\Services\YooKassaService;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Session;
 
 class BookingController extends Controller
 {
@@ -37,7 +40,7 @@ class BookingController extends Controller
         $hours = (int) $validated['hours'];
         $amount = $hours * self::PRICE_PER_HOUR;
 
-        $booking = \App\Models\Booking::create([
+        $booking = Booking::create([
             'name' => $validated['name'],
             'phone' => preg_replace('/\D/', '', $validated['phone']),
             'hours' => $hours,
@@ -45,6 +48,30 @@ class BookingController extends Controller
             'amount' => $amount,
             'status' => 'pending',
         ]);
+
+        $service = app(YooKassaService::class);
+        $payment = $service->createPayment(
+            (float) $amount,
+            "Бронирование коньков — {$hours} ч.",
+            ['type' => 'booking', 'booking_id' => $booking->id]
+        );
+
+        if (!$payment) {
+            return redirect()->route('booking.index')
+                ->with('success', 'Бронирование создано. Сумма к оплате: ' . $amount . '₽. Оплата временно недоступна.');
+        }
+
+        $booking->update(['payment_id' => $payment->getId()]);
+
+        Session::put('payment_return', [
+            'payment_id' => $payment->getId(),
+            'type' => 'booking',
+        ]);
+
+        $confirmationUrl = $payment->getConfirmation()?->getConfirmationUrl();
+        if ($confirmationUrl) {
+            return redirect()->away($confirmationUrl);
+        }
 
         return redirect()->route('booking.index')->with('success', 'Бронирование создано. Сумма к оплате: ' . $amount . '₽');
     }
