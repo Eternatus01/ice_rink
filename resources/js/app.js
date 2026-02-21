@@ -1,4 +1,5 @@
 import './bootstrap';
+import { initPhoneMask } from './phone-mask';
 
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,4 +10,5 @@ document.addEventListener('DOMContentLoaded', () => {
             menu.classList.toggle('hidden');
         });
     }
+    initPhoneMask();
 });
